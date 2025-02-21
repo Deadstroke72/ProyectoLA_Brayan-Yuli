@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package edu.itz.proyectoLA.vistas;
+package edu.itz.ProyectoLA.vistas;
 
 /**
  *
@@ -26,21 +26,82 @@ public class Ventana extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtCodigo = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtMensaje = new javax.swing.JTextArea();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        menuAbrir = new javax.swing.JMenu();
+        mnuAbiri = new javax.swing.JMenuItem();
+        mnuLimpiar = new javax.swing.JMenuItem();
+        mnuSalir = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        mnuLexico = new javax.swing.JMenuItem();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        txtCodigo.setColumns(20);
+        txtCodigo.setRows(5);
+        jScrollPane1.setViewportView(txtCodigo);
+
+        txtMensaje.setColumns(20);
+        txtMensaje.setRows(5);
+        jScrollPane2.setViewportView(txtMensaje);
+
+        menuAbrir.setText("Archivo");
+
+        mnuAbiri.setText("Abrir");
+        mnuAbiri.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuAbiriActionPerformed(evt);
+            }
+        });
+        menuAbrir.add(mnuAbiri);
+
+        mnuLimpiar.setText("Limpiar");
+        menuAbrir.add(mnuLimpiar);
+
+        mnuSalir.setText("Salir");
+        menuAbrir.add(mnuSalir);
+
+        jMenuBar1.add(menuAbrir);
+
+        jMenu2.setText("Compilar");
+
+        mnuLexico.setText("Léxico");
+        jMenu2.add(mnuLexico);
+
+        jMenuBar1.add(jMenu2);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 555, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void mnuAbiriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuAbiriActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mnuAbiriActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +140,16 @@ public class Ventana extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JMenu menuAbrir;
+    private javax.swing.JMenuItem mnuAbiri;
+    private javax.swing.JMenuItem mnuLexico;
+    private javax.swing.JMenuItem mnuLimpiar;
+    private javax.swing.JMenuItem mnuSalir;
+    private javax.swing.JTextArea txtCodigo;
+    private javax.swing.JTextArea txtMensaje;
     // End of variables declaration//GEN-END:variables
 }

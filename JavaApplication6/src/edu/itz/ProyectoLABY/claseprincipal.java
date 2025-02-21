@@ -2,13 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package edu.itz;
+package edu.itz.ProyectoLABY;
 
 /**
  *
  * @author josem
  */
-public class JavaApplication6 {
+public class claseprincipal {
 
     /**
      * @param args the command line arguments
