@@ -4,17 +4,23 @@
  */
 package edu.itz.proyectoLA.vistas;
 
+import edu.itz.proyectoLA.control.Control;
+import javax.swing.JTextArea;
+
 /**
  *
  * @author josem
  */
 public class Ventana extends javax.swing.JFrame {
 
+    Control control;
+
     /**
      * Creates new form ventana
      */
     public Ventana() {
         initComponents();
+        control = new Control(this);
     }
 
     /**
@@ -51,6 +57,11 @@ public class Ventana extends javax.swing.JFrame {
         mnubArchivo.setText("Archivo");
 
         mnuAbrir.setText("Abrir");
+        mnuAbrir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuAbrirActionPerformed(evt);
+            }
+        });
         mnubArchivo.add(mnuAbrir);
 
         mnuLimpiar.setText("Limpiar");
@@ -94,9 +105,21 @@ public class Ventana extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void mnuAbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuAbrirActionPerformed
+        control.abrirArchivo();
+    }//GEN-LAST:event_mnuAbrirActionPerformed
+
     /**
-     * @param args the command line arguments
+     * @return
      */
+    public JTextArea getTxtCodigo() {
+        return txtCodigo;
+    }
+
+    public JTextArea getTxtMensajes() {
+        return txtMensajes;
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar jMenuBar1;
