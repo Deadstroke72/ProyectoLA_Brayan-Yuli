@@ -16,6 +16,7 @@ import javax.swing.JOptionPane;
  * @author yulie
  */
 public class Control {
+    //Segunda Revision 14 de Marzo
 
     Ventana vent;
 
