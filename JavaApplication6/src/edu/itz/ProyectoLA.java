@@ -10,7 +10,7 @@ import edu.itz.proyectoLA.vistas.Ventana;
  *
  * @author josem
  */
-public class JavaApplication6 {
+public class ProyectoLA {
 
     /**
      * @param args the command line arguments
