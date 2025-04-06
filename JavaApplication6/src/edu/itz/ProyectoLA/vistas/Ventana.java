@@ -65,9 +65,19 @@ public class Ventana extends javax.swing.JFrame {
         mnubArchivo.add(mnuAbrir);
 
         mnuLimpiar.setText("Limpiar");
+        mnuLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuLimpiarActionPerformed(evt);
+            }
+        });
         mnubArchivo.add(mnuLimpiar);
 
         mnuSalir.setText("Salir");
+        mnuSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuSalirActionPerformed(evt);
+            }
+        });
         mnubArchivo.add(mnuSalir);
 
         jMenuBar1.add(mnubArchivo);
@@ -75,6 +85,11 @@ public class Ventana extends javax.swing.JFrame {
         mnubCompilar.setText("Compilar");
 
         mnuLexico.setText("Léxico");
+        mnuLexico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuLexicoActionPerformed(evt);
+            }
+        });
         mnubCompilar.add(mnuLexico);
 
         jMenuBar1.add(mnubCompilar);
@@ -96,9 +111,9 @@ public class Ventana extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -108,6 +123,18 @@ public class Ventana extends javax.swing.JFrame {
     private void mnuAbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuAbrirActionPerformed
         control.abrirArchivo();
     }//GEN-LAST:event_mnuAbrirActionPerformed
+
+    private void mnuLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuLimpiarActionPerformed
+        control.limpiar();
+    }//GEN-LAST:event_mnuLimpiarActionPerformed
+
+    private void mnuSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuSalirActionPerformed
+       dispose();
+    }//GEN-LAST:event_mnuSalirActionPerformed
+
+    private void mnuLexicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuLexicoActionPerformed
+        control.lexemas();
+    }//GEN-LAST:event_mnuLexicoActionPerformed
 
     /**
      * @return
