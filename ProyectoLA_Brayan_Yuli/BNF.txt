@@ -1,7 +1,5 @@
-<P1>::= <Bloque>.
-<Programa>::= <P1>
-<P1>-> <Bloque>.
-<Programa>-> <P1>
+<Programa>::= <Bloque>.
+<Programa>-> <Bloque>.
 
 <B2>::= Id=Id, | Id=Id,<B2>
 <B1>::= const <B2>;
@@ -22,7 +20,7 @@
 <Bloque> -> <B1> <B3> <B4> <B5> <B6>  
 
 
-<Bloque>::= <Expresión> ==|<Expresión> <>|<Expresión> <|<Expresión> >|<Expresión> <=|<Expresión>=> <Expresión>
+<Condicion>::= <Expresión> ==|<Expresión> <>|<Expresión> <|<Expresión> >|<Expresión> <=|<Expresión>=> <Expresión>
 <b1> -> <Expresión> ==
 <b1> -> <Expresión> <>
 <b1> -> <Expresión> <
