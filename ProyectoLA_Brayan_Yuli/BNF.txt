@@ -8,7 +8,7 @@
 <B6>::= <Preposición>
 <Bloque>::=<B1> <B3> <B4> <B5> <B6>
 
-<Bloque>::= <Expresión> ==|<Expresión> <>|<Expresión> <|<Expresión> >|<Expresión> <=|<Expresión>=> <Expresión>
+<Condicion>::= <Expresión> ==|<Expresión> <>|<Expresión> <|<Expresión> >|<Expresión> <=|<Expresión>=> <Expresión>
 
 <P2>::= <Proposición>;|<Proposición>;<P2>
 <P1>::= { <P2> }
