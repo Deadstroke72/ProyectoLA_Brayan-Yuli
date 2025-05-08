@@ -1,0 +1,48 @@
+<P1>-> <Bloque>.
+
+<B2> -> Id=Id;
+<B2> -> Id=Id;<B2>
+<B1> -> const <B2>
+<B3> -> Id,
+<B3> -> Id,<B3>
+<B4> -> var<B3>
+<B5> -> Proced id; <Bloque>
+<B6> -> <Preposición>
+<Bloque> -> <B1> <B3> <B4> <B5> <B6>  
+
+<b1> -> <Expresión> ==
+<b1> -> <Expresión> <>
+<b1> -> <Expresión> <
+<b1> -> <Expresión> >
+<b1> -> <Expresión> <=
+<Bloque> -> <Expresión> => <Expresión>
+
+<P2> -> <Proposición>,
+<P2> -> <Proposición>, <P2>
+<P1> -> { <P2> }
+<P3> -> id = <Expresión>
+<P4> -> Print id
+<P4> -> Print id num
+<P5> -> inputd id
+<P6> -> exec id
+<P7> -> if <Condición> : <Proposicion>
+<P8> -> while <Condicion> : <Proposición>
+<P9> -> <Expresión> ->
+<P9> -> <Expresión> <-
+<P10> -> for id = <P9> : <Proposicion>  
+<Proposición> -> <P1> <P3> <P4> <P5> <P6> <P7> <P8> <P10>
+
+<E2> -> +
+<E2> -> -
+<Expresión> -> <Termino> <E2>
+
+<T2> -> *
+<T2> -> /
+<Termino> -> <Factor> <T2>
+
+<F1> -> ( <Expresión> )
+<F2> -> Id
+<F3> -> num
+<Factor> -> <F1>
+<Factor> -> <F2>
+<Factor> -> <F3>
