@@ -9,7 +9,7 @@ package edu.itz.ProyectoLA.lexemas;
  * @author josem
  */
 public enum Token {
-    
+
     PUNTO(".", 2),
     COMA(",", 8),
     IGUAL("=", 10),
@@ -31,20 +31,30 @@ public enum Token {
     PAREN_CIERRA(")", 60),
     MULTIPLICA("*", 62),
     DIVIDE("/", 64),
-
     
-    PROCED("proced", 16),
-    PRINT("print", 34),
-    INPUT("input", 38),
-    EXEC("exec", 40),
-    IF("if", 42),
-    WHILE("while", 44),
-    FOR("for", 48),
-    CONST("const",4),
-    VAR("var",14);
-private final String elemento;
-    private final int token;
+    Proced("proced", 16),
+    
+    Print("print", 34),
+    
+    Input("input", 38),
+    
+    Exec("exec", 40),
+    
+    If("if", 42),
+    
+    While("while", 44),
+    
+    For("for", 48),
+    
+    Const("const", 4),
+    
+    Var("var", 14);
 
+    private final String elemento;
+    private final int token;
+    
+    
+    
     public String getElemento() {
         return elemento;
     }
@@ -52,18 +62,15 @@ private final String elemento;
     public int getToken() {
         return token;
     }
-    
 
     Token(String elemento, int token) {
         this.elemento = elemento;
         this.token = token;
     }
-    
 
-   
     public static Token buscarPorSimbolo(String simbolo) {
         for (Token t : Token.values()) {
-            if (t.elemento.equals(simbolo)) {
+            if (t.elemento.equalsIgnoreCase(simbolo)) {
                 return t;
             }
         }

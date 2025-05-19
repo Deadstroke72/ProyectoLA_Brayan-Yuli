@@ -50,6 +50,7 @@ public class Ventana extends javax.swing.JFrame {
         txtCodigo.setRows(5);
         jScrollPane1.setViewportView(txtCodigo);
 
+        txtMensajes.setEditable(false);
         txtMensajes.setColumns(20);
         txtMensajes.setRows(5);
         jScrollPane2.setViewportView(txtMensajes);

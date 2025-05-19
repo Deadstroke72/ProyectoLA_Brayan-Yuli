@@ -70,19 +70,15 @@ public class Control {
         String texto = vent.getTxtCodigo().getText();  // texto del usuario
         vent.getTxtMensajes().setText("");  // limpiamos salida
 
-        int CONST = 4;
-        int VAR = 14;
         int ID = 6;
         int NUM = 36;
 
         Pattern patron = Pattern.compile(
                 "==|<=|>=|<>|->|<-|[{}();=:+\\-*/<>.,]"
-                + // símbolos
-                "|\\b(int|double|String|boolean|char|long|proced|print|input|exec|if|while|for)\\b"
-                + // palabras clave
-                "|\\d+(\\.\\d+)?"
-                + // números
-                "|\\b[a-zA-Z_][a-zA-Z0-9_]*\\b" // identificadores
+                + "|\\b(int|double|String|boolean|char|long|proced|print|input|exec|if|while|for)\\b" // palabras clave
+                + "|\\d+(\\.\\d+)?" // números
+                + "|\\b[a-zA-Z_][a-zA-Z0-9_]*\\b"
+                + "|(?<==)\\s*([a-zA-Z_][a-zA-Z0-9_]*)\\b"
         );
 
         Matcher match = patron.matcher(texto);
@@ -94,11 +90,7 @@ public class Control {
             if (token == null) {
                 if (encontrado.matches("\\d+(\\.\\d+)?")) {
                     vent.getTxtMensajes().append(encontrado + " -> " + NUM + "\n");
-                /*} else if (encontrado.matches("")) {
-                   // vent.getTxtMensajes().append(encontrado + " -> " + CONST + "\n");
-                //}  else if (encontrado.matches("")) {
-                     vent.getTxtMensajes().append(encontrado + " -> " + VAR + "\n");*/
-                } else if (encontrado.matches("[a-zA-Z]+")) {
+                } else if (encontrado.matches("[a-zA-Z_][a-zA-Z0-9_]*")) {
                     vent.getTxtMensajes().append(encontrado + " -> " + ID + "\n");
                 }
             } else {
