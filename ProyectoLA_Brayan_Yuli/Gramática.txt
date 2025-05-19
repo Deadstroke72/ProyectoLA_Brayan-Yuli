@@ -1,0 +1,76 @@
+<Programa> → <Bloque>.
+
+<Bloque> → <A1> <B3> <C1> <Proposición>
+
+<A1> → id : num
+<A2> → <A1> 
+<A2> → <A1> ; <A2> 
+<A3> → Const <A2>
+<A2> → ε
+
+<B3> → id
+<B1> → id ; <B3>
+<B2> → Var <B1> ;
+<B2> → ε
+
+<C1> → Proced id ; <Bloque> ;
+<C2> → ε
+<C2> → ε <C1> <C2> 
+
+<Bloque> → <Expresión> <D1> <Expresión>
+
+<D1> → ==
+<D1> → <>
+<D1> → <
+<D1> → >
+<D1> → <=
+<D1> → >=
+
+<Proposición> → <E2>
+<Proposición> → <F1>
+<Proposición> → <G2>
+<Proposición> → <H1>
+<Proposición> → <I1>
+<Proposición> → <J1>
+<Proposición> → <K1>
+<Proposición> → <L2>
+
+<E1> → <Proposición> 
+<E1> → <Proposición> ; <E1> 
+<E2> → { <E1> }
+
+<F1> → id = <Expresión>
+
+<G1> → id
+<G1> → num
+<G2> → Print <G1>
+
+<H1> → Input id
+
+<I2> → exec id
+
+<J1> → if <Condición> : <Proposición>
+
+<K1> → while <Condición> : <Proposición>
+
+<L1> → "→"
+<L1> → "←"
+<L2> → For id = <Expresión> <L1> <Expresión> : <Proposición>
+
+<Expresión> → <Término>
+<Expresión> → <Término> <M1> <Expresión> 
+
+<M1> → -
+<M1> → +
+
+<Término> → <Factor> 
+<Término> → <Factor> <N1> <Término> 
+
+<N1> → /
+<N1> → *
+
+<Factor> → <O1>
+<Factor> → id
+<Factor> → num
+
+<O1> → ( <Expresion> )
