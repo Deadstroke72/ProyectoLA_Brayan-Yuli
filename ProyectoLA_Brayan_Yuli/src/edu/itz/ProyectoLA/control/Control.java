@@ -3,17 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package edu.itz.proyectoLA.control;
-
 import edu.itz.ProyectoLA.lexemas.Token;
 import edu.itz.proyectoLA.vistas.Ventana;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
+import java.io.*;
+import java.util.regex.*;
+import javax.swing.*;
 
 /**
  *
@@ -76,7 +70,7 @@ public class Control {
         Pattern patron = Pattern.compile(
                 "==|<=|>=|<>|->|<-|[{}();=:+\\-*/<>.,]"
                 + "|\\b(int|double|String|boolean|char|long|proced|print|input|exec|if|while|for)\\b" // palabras clave
-                + "|\\d+(\\.\\d+)?" // números
+                + "|[1-9][0-9]\\d*|0" // números
                 + "|\\b[a-zA-Z_][a-zA-Z0-9_]*\\b"
                 + "|(?<==)\\s*([a-zA-Z_][a-zA-Z0-9_]*)\\b"
         );
@@ -88,7 +82,7 @@ public class Control {
             Token token = Token.buscarPorSimbolo(encontrado);
 
             if (token == null) {
-                if (encontrado.matches("\\d+(\\.\\d+)?")) {
+                if (encontrado.matches("[1-9][0-9]\\d*|0")) {
                     vent.getTxtMensajes().append(encontrado + " -> " + NUM + "\n");
                 } else if (encontrado.matches("[a-zA-Z_][a-zA-Z0-9_]*")) {
                     vent.getTxtMensajes().append(encontrado + " -> " + ID + "\n");
