@@ -48,6 +48,14 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuLexicoActionPerformed"/>
               </Events>
             </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="mnuSintaxis">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Sintaxis"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuSintaxisActionPerformed"/>
+              </Events>
+            </MenuItem>
           </SubComponents>
         </Menu>
       </SubComponents>
@@ -107,6 +115,7 @@
           <Properties>
             <Property name="columns" type="int" value="20"/>
             <Property name="rows" type="int" value="5"/>
+            <Property name="text" type="java.lang.String" value="consT uno=100,dos=0;&#xa;vAr a_1,b_2;&#xa;proced funcion1;&#xa;&#x9;const a=0;&#xa;&#x9;var m;&#xa;&#x9;print m;&#xa;proced funcion2;&#xa;&#x9;const b=10;&#xa;&#x9;var n;&#xa;&#x9;print n;&#xa;{&#xa;&#x9;id=a_1*(b_2+1);&#xa;&#x9;for id = dos*5-&gt;uno-3:&#xa;&#x9;&#x9;if a__1&lt;&gt;b__1:&#xa;&#x9;&#x9;&#x9;while a__1&lt;&gt;b__1:&#xa;&#x9;&#x9;&#x9;&#x9;{&#xa;&#x9;&#x9;&#x9;&#x9;&#x9;input dos;&#xa;&#x9;&#x9;&#x9;&#x9;&#x9;excec uno;&#xa;&#x9;&#x9;&#x9;&#x9;&#x9;print 100&#xa;&#x9;&#x9;&#x9;&#x9;}&#xa;&#x9;print miVariable_Compu3st4&#xa;}&#xa;&#xa;&#xa;"/>
           </Properties>
         </Component>
       </SubComponents>

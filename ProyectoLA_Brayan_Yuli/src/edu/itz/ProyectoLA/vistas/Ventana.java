@@ -4,7 +4,9 @@
  */
 package edu.itz.proyectoLA.vistas;
 
+import edu.itz.ProyectoLA.control.Sintaxis;
 import edu.itz.proyectoLA.control.Control;
+import java.util.ArrayList;
 import javax.swing.JTextArea;
 
 /**
@@ -14,6 +16,7 @@ import javax.swing.JTextArea;
 public class Ventana extends javax.swing.JFrame {
 
     Control control;
+    private Sintaxis sintaxis;
 
     /**
      * Creates new form ventana
@@ -21,6 +24,8 @@ public class Ventana extends javax.swing.JFrame {
     public Ventana() {
         initComponents();
         control = new Control(this);
+         sintaxis = new Sintaxis(this);
+        
     }
 
     /**
@@ -43,11 +48,13 @@ public class Ventana extends javax.swing.JFrame {
         mnuSalir = new javax.swing.JMenuItem();
         mnubCompilar = new javax.swing.JMenu();
         mnuLexico = new javax.swing.JMenuItem();
+        mnuSintaxis = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         txtCodigo.setColumns(20);
         txtCodigo.setRows(5);
+        txtCodigo.setText("consT uno=100,dos=0;\nvAr a_1,b_2;\nproced funcion1;\n\tconst a=0;\n\tvar m;\n\tprint m;\nproced funcion2;\n\tconst b=10;\n\tvar n;\n\tprint n;\n{\n\tid=a_1*(b_2+1);\n\tfor id = dos*5->uno-3:\n\t\tif a__1<>b__1:\n\t\t\twhile a__1<>b__1:\n\t\t\t\t{\n\t\t\t\t\tinput dos;\n\t\t\t\t\texcec uno;\n\t\t\t\t\tprint 100\n\t\t\t\t}\n\tprint miVariable_Compu3st4\n}\n\n\n");
         jScrollPane1.setViewportView(txtCodigo);
 
         txtMensajes.setEditable(false);
@@ -93,6 +100,14 @@ public class Ventana extends javax.swing.JFrame {
         });
         mnubCompilar.add(mnuLexico);
 
+        mnuSintaxis.setText("Sintaxis");
+        mnuSintaxis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuSintaxisActionPerformed(evt);
+            }
+        });
+        mnubCompilar.add(mnuSintaxis);
+
         jMenuBar1.add(mnubCompilar);
 
         setJMenuBar(jMenuBar1);
@@ -137,6 +152,11 @@ public class Ventana extends javax.swing.JFrame {
         control.lexemas();
     }//GEN-LAST:event_mnuLexicoActionPerformed
 
+    private void mnuSintaxisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuSintaxisActionPerformed
+    
+    control.analizarSintaxis(); // Ejecuta análisis sintáctico completo
+    }//GEN-LAST:event_mnuSintaxisActionPerformed
+
     /**
      * @return
      */
@@ -157,6 +177,7 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JMenuItem mnuLexico;
     private javax.swing.JMenuItem mnuLimpiar;
     private javax.swing.JMenuItem mnuSalir;
+    private javax.swing.JMenuItem mnuSintaxis;
     private javax.swing.JMenu mnubArchivo;
     private javax.swing.JMenu mnubCompilar;
     private javax.swing.JTextArea txtCodigo;

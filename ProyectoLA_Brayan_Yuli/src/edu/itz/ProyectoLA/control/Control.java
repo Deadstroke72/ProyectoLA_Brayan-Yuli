@@ -3,9 +3,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package edu.itz.proyectoLA.control;
+
 import edu.itz.ProyectoLA.lexemas.Token;
 import edu.itz.proyectoLA.vistas.Ventana;
+import edu.itz.ProyectoLA.control.Sintaxis;
 import java.io.*;
+import java.util.ArrayList;
 import java.util.regex.*;
 import javax.swing.*;
 
@@ -16,6 +19,7 @@ import javax.swing.*;
 public class Control {
 
     Ventana vent;
+     private Sintaxis sintaxis;
 
     public Control(Ventana vent) {
         this.vent = vent;
@@ -60,7 +64,7 @@ public class Control {
 
     }
 
-    public void lexemas() {
+    public ArrayList<String> lexemas() {
         String texto = vent.getTxtCodigo().getText();  // texto del usuario
         vent.getTxtMensajes().setText("");  // limpiamos salida
 
@@ -69,27 +73,50 @@ public class Control {
 
         Pattern patron = Pattern.compile(
                 "==|<=|>=|<>|->|<-|[{}();=:+\\-*/<>.,]"
-                + "|\\b(int|double|String|boolean|char|long|proced|print|input|exec|if|while|for)\\b" // palabras clave
-                + "|[1-9][0-9]\\d*|0" // números
+                + "|\\b(int|double|String|boolean|char|long|proced|print|input|exec|if|while|for)\\b"
+                + "|(0|[1-9]\\d*)"
                 + "|\\b[a-zA-Z_][a-zA-Z0-9_]*\\b"
                 + "|(?<==)\\s*([a-zA-Z_][a-zA-Z0-9_]*)\\b"
         );
 
         Matcher match = patron.matcher(texto);
+        ArrayList<String> resultados = new ArrayList<>();
 
         while (match.find()) {
             String encontrado = match.group();
             Token token = Token.buscarPorSimbolo(encontrado);
 
+            String lineaResultado;
             if (token == null) {
-                if (encontrado.matches("[1-9][0-9]\\d*|0")) {
-                    vent.getTxtMensajes().append(encontrado + " -> " + NUM + "\n");
+                if (encontrado.matches("(0|[1-9]\\d*)")) {
+                    lineaResultado = encontrado + " -> " + NUM;
                 } else if (encontrado.matches("[a-zA-Z_][a-zA-Z0-9_]*")) {
-                    vent.getTxtMensajes().append(encontrado + " -> " + ID + "\n");
+                    lineaResultado = encontrado + " -> " + ID;
+                } else {
+                    lineaResultado = encontrado + " -> DESCONOCIDO";
                 }
             } else {
-                vent.getTxtMensajes().append(encontrado + " -> " + token.getToken() + "\n");
+                lineaResultado = encontrado + " -> " + token.getToken();
             }
+
+            resultados.add(lineaResultado);
+            vent.getTxtMensajes().append(lineaResultado + "\n"); // Mantenemos el envío a mensajes
+            System.out.println(lineaResultado); // Mantenemos la impresión en consola
+        }
+
+        return resultados; // Además retornamos el ArrayList
+    }
+    
+     
+    public void analizarSintaxis() {
+        ArrayList<String> tokens = lexemas();
+        if (tokens != null && !tokens.isEmpty()) {
+            sintaxis = new Sintaxis(tokens, vent);
+            sintaxis.Programa();
+        } else {
+            vent.getTxtMensajes().append("No hay tokens para analizar sintácticamente\n");
         }
     }
 }
+
+
