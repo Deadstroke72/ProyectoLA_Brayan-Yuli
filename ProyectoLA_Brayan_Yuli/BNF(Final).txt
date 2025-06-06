@@ -1,0 +1,49 @@
+BNF  
+<Programa> ::= <Bloque>.
+
+<A1> ::= id = num  
+<A2> ::= <A1> | <A1> , <A2>  
+<A3> ::= Const <A2> ; | ε
+
+<B1> ::= id | id ; <B1>  
+<B2> ::= var <B1> ; | ε
+
+<C1> ::= Proced id ; <Bloque> ;  
+<C2> ::= ε | <C1> <C2>
+
+<Bloque> ::= <A3> <B2> <C2> <Proposición>
+
+<D1> ::= == | <> | < | > | <= | >=
+
+<Condición> ::= <Expresión> <D1> <Expresión>
+
+<E1> ::= <Proposición> | <Proposición> ; <E1>  
+<E2> ::= "{" <E1> "}"
+
+<F1> ::= id = <Expresión>
+
+<G1> ::= id | num  
+<G2> ::= Print <G1>
+
+<H1> ::= input id  
+
+<I1> ::= exec id
+
+<J1> ::= if <Condición> : <Proposición>  
+
+<K1> ::= while <Condición> : <Proposición>
+
+<L1> ::= —> | <—
+<L2> ::= For id = <Expresión> <L1> <Expresión> : <Proposición>
+
+<Proposición> ::= <E2> | <F1> | <G2> | <H1> | <I1> | <J1> | <K1> | <L2>
+
+<M1> ::= - | +  
+<Expresión> ::= <Término> | <Término> <M1> <Expresión>
+
+<N1> ::= / | *  
+<Término> ::= <Factor> | <Factor> <N1> <Término>
+
+<O1> ::= "(" <Expresión> ")"  
+
+<Factor> ::= <O1> | id | num

@@ -1,0 +1,70 @@
+First
+First(O1) = { '(' }
+
+First(Factor) = { num , id } + First(O1)
+              = { `num`, id , '(' }
+
+First(N1) = { / , * }
+
+First(TN1Null) = First(N1) + {ε}
+               = { / , * , ε }
+
+First(Termino) = First(Factor)
+               = { num , id , ( }
+
+First(N1) = { + , - }
+
+First(EM1Null) = First(M1) + {ε}
+               = { + , - , ε }
+
+First(Expresion) = First(Termino)
+               = { num , id , ( }
+
+
+First(L2)` = { for }
+First(L1)` = { ->, <- }
+First(K1)` = { while }
+First(J1)` = { if }
+First(I1)` = { exec }
+First(H1)` = { Input }
+First(G2)` = { Print }
+First(G1)` = { id , num }
+First(F1)` = { id` }
+First(E2)` = { { }
+
+First(PE1Null)` = { ε , ; }
+
+First(E1) = First(Proposición)
+      = { for , while , if , exec , Input , Print , id , '{' }
+
+First(Proposición) = First(L2) + First(K1) + First(J1) + First(I1) + First(H1) + First(G2) + First(F1) + First(E2)
+                   = { for, while, if, exec, Input, Print, id, '{' }
+
+First(D1) = { >=, <=, >, <, <>, == }
+
+First(Condicion) = First(Expresion)
+                 = { num, id, '(' }
+
+First(C1) = { Proced, ε }
+
+First(B2) = { Var, ε }
+First(PB1Null) = { ε, , }
+First(B1) = { id }
+
+First(A2) = { Const, ε }
+First(PA1Null) = { ε, , }
+First(A1) = { id }
+
+First(Bloque) = First(A2)
+         = { Const, ε }
+         = { Const } + First(B2)
+         = { Const, Var, ε }
+         = { Const, Var } + First(C1)
+         = { Const, Var, Proced, ε }
+         = { Const, Var, Proced } + First(Proposición)
+         = { Const, Var, Proced, for, while, if, exec,
+           Input, Print, id, '{' }
+
+First(Programa) = First(Bloque)
+            = { Const, Var, Proced, for, while, if, exec, Input, Print, id, '{' }
+
